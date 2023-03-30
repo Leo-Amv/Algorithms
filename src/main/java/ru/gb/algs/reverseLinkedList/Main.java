@@ -5,7 +5,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         LinkList<Integer> numbers = new LinkList<>();
-        numbers.addToEnd(6);
         numbers.addToEnd(5);
         numbers.addToEnd(4);
         numbers.addToEnd(3);
