@@ -1,9 +1,6 @@
 package ru.gb.algs.reverseLinkedList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,6 +11,14 @@ public class Main {
         numbers.addToEnd(3);
         numbers.addToEnd(2);
         numbers.addToEnd(1);
+        for (int num : numbers) {
+            System.out.printf(num + " ");
+        }
+        System.out.println();
+        numbers.reverse();
+        for (int num : numbers) {
+            System.out.printf(num + " ");
+        }
     }
 
     public static class LinkList<T> implements Iterable<T> {
@@ -24,9 +29,10 @@ public class Main {
         public Iterator<T> iterator() {
             return new Iterator<T>() {
                 ListItem<T> current = head;
+
                 @Override
                 public boolean hasNext() {
-                    return current!=null;
+                    return current != null;
                 }
 
                 @Override
@@ -57,6 +63,20 @@ public class Main {
             } else {
                 tail.next = newItem;
                 tail = newItem;
+            }
+        }
+
+        public void reverse() {
+            if (!isEmpty() && head.next != null) {
+                tail = head;
+                ListItem<T> current = head.next;
+                head.next = null;
+                while (current != null) {
+                    ListItem<T> next = current.next;
+                    current.next = head;
+                    head = current;
+                    current = next;
+                }
             }
         }
     }
