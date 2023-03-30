@@ -14,7 +14,6 @@ public class Main {
         numbers.addToEnd(3);
         numbers.addToEnd(2);
         numbers.addToEnd(1);
-        numbers.addToEnd(1);
     }
 
     public static class LinkList<T> implements Iterable<T> {
